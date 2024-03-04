@@ -41,10 +41,10 @@ MechanicCor<-t(cor(BGGDF[,24:ncol(BGGDF)],  # Calculate correlations
 
 CutDF<-BGGDF[BGGDF$Users.Rated>10000,]
 CutDFcormatrix<-as.data.frame(cor(CutDF[,4:12]))
-CutDFGenreCor<-t(cor(top500[,15:23],  # Calculate correlations
-                     top500$Rating.Average))
-CutDFMechanicCor<-t(cor(top500[,24:ncol(top500)],  # Calculate correlations
-                        top500$Rating.Average))
+CutDFGenreCor<-t(cor(CutDF[,15:23],  # Calculate correlations
+                     CutDF$Rating.Average))
+CutDFMechanicCor<-t(cor(CutDF[,24:ncol(CutDF)],  # Calculate correlations
+                        CutDF$Rating.Average))
 
 tempdf<-as.data.frame(unclass(summary(CutDF$Rating.Average)))
 tempdf[nrow(tempdf) + 1,]<-var(CutDF$Rating.Average)
